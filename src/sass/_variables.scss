@@ -1,0 +1,31 @@
+// _variables.scss
+
+// Colors
+$primary: #973131;
+$secondary: #E0A75E;
+$background: #F8F4E1;
+$text: #F7F9F2;
+$dark:#102C57;
+$light:#FFF;
+$lightActive:#FFBF00;
+$fanActive:#028391;
+$acActive:#03AED2;
+$plugActive:#0A6847;
+$orthers:#4F6F52;
+
+// Transitions
+$transition: all 0.4s ease-in-out;
+
+@font-face {
+    font-family: Mons;
+    src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+// Fonts
+$font-family: 'Mons';
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

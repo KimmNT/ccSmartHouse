@@ -64,10 +64,10 @@ export default function DetailPage() {
   }, []);
 
   const handleTurnOn = () => {
-    client.publish("device/test", "LCTRL-05-ER", { qos });
+    client.publish("device/test", "LCTRL-03-ER", { qos });
   };
   const handleTurnOff = () => {
-    client.publish("device/test", "LCTRL-05-OK", { qos });
+    client.publish("device/test", "LCTRL-03-OK", { qos });
   };
 
   return (

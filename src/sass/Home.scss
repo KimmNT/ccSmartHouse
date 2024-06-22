@@ -1,0 +1,290 @@
+@import '../sass/variables';
+
+.home__container{
+    width: 100%;
+    height: 100%;
+    .home__content{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        .home__headline{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            .headline__welcome{
+                word-wrap: break-word;
+                font-size: 2rem;
+                font-weight: 600;
+                color: $dark;
+            }
+            .headline__exit{
+                font-size: 3rem;
+                color: $primary;
+            }
+        }
+        .home__item{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 10rem;
+            .device{
+                position: relative;
+                flex-basis: calc(50% - 20px); /* Adjust width of each child */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem .5rem; /* Optional: Adjust padding as needed */
+                box-sizing: border-box;
+                border-radius: .5rem;
+                transition: $transition;
+                &.active{
+                    background: $light;
+                    box-shadow: -5px 5px 10px rgb(161, 161, 161);
+                    transition: $transition;
+                }
+                &.inactive{
+                    background: #dbdbdb;
+                    transition: $transition;
+                    // box-shadow: -5px 5px 10px rgb(161, 161, 161);
+                }
+                .device__headline{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%;
+                    gap: 1.5rem;
+                    .devce__name{
+                        font-size: 2rem;
+                        font-weight: 600;
+                    }
+                    .device__btn_control{
+                        display: flex;
+                        gap: 1rem;
+                        .btn{
+                            width: 4rem;
+                            height: 2rem;
+                            font-size: 1rem;
+                            border-radius: .5rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: $transition;
+                            &.on{
+                                background: $dark;
+                                color: $light;
+                                border: .2rem solid $dark;
+                                transition: $transition;
+                            }
+                            &.off{
+                                background: $light;
+                                color: $dark;
+                                border: .2rem solid $dark;
+                                transition: $transition;
+                            }
+                        }
+                    }
+                }
+                .device__type{
+                    width: 20%;
+                    font-size: 4rem;
+                    .light{
+                        transition: $transition;
+                        &.active{
+                            transition: $transition;
+                            color: $lightActive;
+                        }
+                        &.inactive{
+                            transition: $transition;
+                        }
+                    }
+                    .ac{
+                        transition: $transition;
+                        &.active{
+                            transition: $transition;
+                            color: $acActive;
+                        }
+                        &.inactive{
+                            transition: $transition;
+                        }
+                    }
+                    .fan{
+                        transition: $transition;
+                        &.active{
+                            transition: $transition;
+                            color: $fanActive;
+                        }
+                        &.inactive{
+                            transition: $transition;
+                        }
+                    }
+                    .plug{
+                        transition: $transition;
+                        &.active{
+                            transition: $transition;
+                            color: $plugActive;
+                        }
+                        &.inactive{
+                            transition: $transition;
+                        }
+                    }
+                    .plus{
+                        transition: $transition;
+                        &.active{
+                            transition: $transition;
+                            color: $orthers;
+                        }
+                        &.inactive{
+                            transition: $transition;
+                        }
+                    }
+                }
+                .device__delete{
+                    position: absolute;
+                    top: -.7rem;
+                    right: -.7rem;
+                    background: $primary;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    font-size: 1.5rem;
+                    color: $light;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+.home__adding{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 9rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: $light;
+    background: $dark;
+    border-radius: .5rem;
+}
+.create__container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .create__content{
+        position: relative;
+        background: $light;
+        padding: 3rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        .create__headline{
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        .create__form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+            .form__item{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 2rem;
+                .item__lable{
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+                input{
+                    width: 100%;
+                    font-size: 2rem;
+                    background: transparent;
+                    font-weight: 600;
+                    padding: 1rem;
+                    width: 100%;
+                }
+            }
+            .form__choose{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 2rem;
+                .item__lable{
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+                .item__list{
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    // justify-content: space-between;
+                    gap: 1rem;
+                    .item{
+                        width: 25%;
+                        padding: 1rem;
+                        font-size: 1.5rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: 600;
+                        border-radius: .5rem;         
+                        &.active{
+                            background: $dark;
+                            color: $light;
+                        }
+                        &.inactive{
+                        background: $background;
+                        color: $dark;
+                        }
+                    }
+                }
+            }
+            .form__btn{
+                width: 16rem;
+                height: 4rem;
+                background: $primary;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: .5rem;
+                .btn__text{
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    color: $light;
+                }
+            }
+        }
+        .create__icon{
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            font-size: 2rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: $secondary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $light;
+        }
+    }
+}
