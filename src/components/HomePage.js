@@ -73,11 +73,13 @@ export default function HomePage() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (client) {
-  //     setMqttCheck("Connected with MQTT");
-  //   }
-  // }, [client]);
+  useEffect(() => {
+    if (client) {
+      setMqttCheck("Connected with MQTT");
+    } else {
+      setMqttCheck("MQTT closed");
+    }
+  }, [client]);
 
   useEffect(() => {
     if (userId) {
@@ -193,7 +195,9 @@ export default function HomePage() {
       <div className="home__container">
         <div className="home__content">
           <div className="home__headline">
-            <div className="headline__welcome">Welcome back!</div>
+            <div className="headline__welcome">
+              Welcome back! <br /> {mqttCheck}
+            </div>
             <div>{response}</div>
             <div className="headline__exit" onClick={() => navigateToPage("/")}>
               <FaArrowAltCircleRight />
