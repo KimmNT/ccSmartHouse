@@ -37,8 +37,10 @@ export default function HomePage() {
   const [deviceType, setDeviceType] = useState("");
 
   //MQTT
+  const [mqttCheck, setMqttCheck] = useState("");
   const [client, setClient] = useState(null);
   const qos = 0;
+  const [response, setResponse] = useState("");
 
   //DISPLAY
   const [devices, setDevices] = useState([]);
@@ -70,6 +72,12 @@ export default function HomePage() {
       }
     };
   }, []);
+
+  // useEffect(() => {
+  //   if (client) {
+  //     setMqttCheck("Connected with MQTT");
+  //   }
+  // }, [client]);
 
   useEffect(() => {
     if (userId) {
@@ -136,9 +144,15 @@ export default function HomePage() {
       console.error("Error updating device: ", error);
     });
     if (client) {
-      publishMessage(client, "device/test", `LCTRL-0${device.deviceSlot}-ER`, {
-        qos,
-      });
+      publishMessage(
+        client,
+        "device/test",
+        `LCTRL-0${device.deviceSlot}-ER`,
+        setResponse,
+        {
+          qos,
+        }
+      );
     }
   };
   const TurnDeviceOff = (device) => {
@@ -154,9 +168,15 @@ export default function HomePage() {
       console.error("Error updating device: ", error);
     });
     if (client) {
-      publishMessage(client, "device/test", `LCTRL-0${device.deviceSlot}-OK`, {
-        qos,
-      });
+      publishMessage(
+        client,
+        "device/test",
+        `LCTRL-0${device.deviceSlot}-OK`,
+        setResponse,
+        {
+          qos,
+        }
+      );
     }
   };
 
@@ -174,6 +194,7 @@ export default function HomePage() {
         <div className="home__content">
           <div className="home__headline">
             <div className="headline__welcome">Welcome back!</div>
+            <div>{response}</div>
             <div className="headline__exit" onClick={() => navigateToPage("/")}>
               <FaArrowAltCircleRight />
             </div>

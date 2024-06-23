@@ -48,11 +48,12 @@ export const connectToBroker = (setClient, qos = 0) => {
   return mqttClient;
 };
 
-export const publishMessage = (client, topic, message) => {
+export const publishMessage = (client, topic, message, setResponse) => {
   client.publish(topic, message, (err) => {
     if (err) {
       console.error(`Error publishing message on topic ${topic}:`, err);
     } else {
+      setResponse(message);
       console.log(`Published message "${message}" to topic ${topic}`);
     }
   });
